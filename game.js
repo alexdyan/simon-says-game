@@ -4,8 +4,15 @@ let userPattern = [];
 let gameStarted = false;
 let level = 0;
 
-// start the game
+// start the game with a keypress or click
 $(document).keypress(function() {
+	if (!gameStarted) {
+		$("#level-title").text("Level " + level);
+		nextSequence();
+		gameStarted = true;
+	}
+});
+$(document).click(function() {
 	if (!gameStarted) {
 		$("#level-title").text("Level " + level);
 		nextSequence();
